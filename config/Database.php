@@ -6,7 +6,7 @@ class Database
 {
     //* DB Params
     private $host = DB_HOST;
-    private $user = DB_USER;
+    private $user = DB_USERNAME;
     private $password = DB_PASSWORD;
     private $db_name = DB_NAME;
 
