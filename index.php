@@ -4,6 +4,7 @@ header("Access-Control-Allow-Origin: *");
 header("Content-Type: appication/json");
 header("Access-Control-Allow-Methods: POST");
 header("Acces-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization,X-Requested-Width");
+echo "It works";
 
 include_once "config/Database.php";
 include_once "models/Book.php";
