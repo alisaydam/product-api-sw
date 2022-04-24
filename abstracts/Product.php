@@ -13,6 +13,15 @@ abstract class Product implements IProduct
     protected $name;
     protected $price;
 
+
+    // $mymap = [
+    //     1=>'book',
+    //     2=>'disc',
+    //     3=>'furniture'
+    //   ];
+    //   $mydata = [3,3,1];
+    //   var_dump(array_map(function($v) use ($mymap) {return $mymap[$v];}, $mydata));
+
     // Constructor with DB
     public function __construct($db)
     {
