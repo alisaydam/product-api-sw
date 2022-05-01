@@ -1,6 +1,6 @@
 <?php
 
-* DB Info
+// * DB Info
 define("DB_HOST", "us-cdbr-east-05.cleardb.net");
 define("DB_USERNAME", "ba871319ce1487");
 define("DB_PASSWORD", "7dbde77c");
