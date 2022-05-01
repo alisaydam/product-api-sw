@@ -1,6 +1,7 @@
 <?php
 
-include "models/Product.php";
+include_once "abstracts/Product.php";
+include_once "interfaces/IDisc.php";
 
 class Disc extends Product implements IDisc
 {

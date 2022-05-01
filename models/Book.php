@@ -1,6 +1,6 @@
 <?php
-include "abstracts/Product.php";
-include "interfaces/IBook.php";
+include_once "abstracts/Product.php";
+include_once "interfaces/IBook.php";
 // namespace Book;
 
 // use Baseclass\Product;

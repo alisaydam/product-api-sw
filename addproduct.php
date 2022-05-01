@@ -1,4 +1,5 @@
 <?php
+echo "It works";
 
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: appication/json");
@@ -7,7 +8,9 @@ header("Acces-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type,
 echo "It works";
 
 include_once "config/Database.php";
+include_once "models/Furniture.php";
 include_once "models/Book.php";
+include_once "models/Disc.php";
 // require "autoload.php";
 
 //* Instantiate DB
@@ -17,7 +20,11 @@ $db = $database->connect();
 
 $data = json_decode(file_get_contents("php://input"));
 
-if ($data->type === "book") {
+echo  json_encode(
+    array(($data))
+);
+
+if ($data->productType === "Book") {
     //* Create book
     $book = new Book($db);
     $book->setSKU($data->SKU);
@@ -35,9 +42,37 @@ if ($data->type === "book") {
         );
     }
 }
-if ($data->type === "disc") {
-    //* Create disc product
+if ($data->productType === "DVD") {
+    $disc = new Disc($db);
+    $disc->setSKU($data->SKU);
+    $disc->setName($data->name);
+    $disc->setPrice($data->price);
+    $disc->setSize($data->size);
+
+    if ($disc->create()) {
+        echo json_encode(
+            array("Message" => "disc Created")
+        );
+    } else {
+        echo json_encode(
+            array("Message" => "disc not created")
+        );
+    }
 }
-if ($data->type === "furniture") {
-    //* Create furniture product
+if ($data->productType === "Furniture") {
+    $furniture = new Furniture($db);
+    $furniture->setSKU($data->SKU);
+    $furniture->setName($data->name);
+    $furniture->setPrice($data->price);
+    $furniture->setDimentions($data->dimentions);
+
+    if ($furniture->create()) {
+        echo json_encode(
+            array("Message" => "furniture Created")
+        );
+    } else {
+        echo json_encode(
+            array("Message" => "furniture not created")
+        );
+    }
 }

@@ -1,6 +1,7 @@
 <?php
 
-include_once "Product.php";
+include_once "abstracts/Product.php";
+include_once "interfaces/IFurniture.php";
 
 class Furniture extends Product implements IFurniture
 {
@@ -27,7 +28,7 @@ class Furniture extends Product implements IFurniture
     {
         //* Create query
         $query = "INSERT INTO " . $this->table . " SET SKU = :SKU, name = :name, price = :price, 
-        height = :height, width = :width, length = :length";
+        dimentions = :dimentions";
 
         //* Prepare Statement
         $stmt = $this->conn->prepare($query);
@@ -36,17 +37,13 @@ class Furniture extends Product implements IFurniture
         $this->SKU = htmlspecialchars(strip_tags($this->SKU));
         $this->name = htmlspecialchars(strip_tags($this->name));
         $this->price = htmlspecialchars(strip_tags($this->price));
-        $this->height = htmlspecialchars(strip_tags($this->height));
-        $this->width = htmlspecialchars(strip_tags($this->width));
-        $this->length = htmlspecialchars(strip_tags($this->length));
+        $this->dimentions = htmlspecialchars(strip_tags($this->dimentions)); 
 
         //* Bind data
         $stmt->bindParam(":SKU", $this->SKU);
         $stmt->bindParam(":name", $this->name);
         $stmt->bindParam(":price", $this->price);
-        $stmt->bindParam(":height", $this->height);
-        $stmt->bindParam(":width", $this->width);
-        $stmt->bindParam(":length", $this->length);
+        $stmt->bindParam(":dimentions", $this->dimentions); 
 
         //* Execure query
         if ($stmt->execute()) {

@@ -1,6 +1,5 @@
 <?php
-
-// namespace ProductInterface;
+ 
 
 interface IProduct
 {
