@@ -1,12 +1,12 @@
 <?php
-include_once "abstracts/Product.php";
+include_once "abstracts/Base.php";
 include_once "interfaces/IBook.php";
 // namespace Book;
 
 // use Baseclass\Product;
 // use BookInterface\IBook;
 
-class Book extends Product implements IBook
+class Book extends Base implements IBook
 {
     private $conn;
 
@@ -32,7 +32,7 @@ class Book extends Product implements IBook
     public function create()
     {
         //* Create query
-        $query = "INSERT INTO " . $this->table . " SET SKU = :SKU, name = :name, price = :price, weight = :weight";
+        $query = "INSERT INTO " . $this->table . " SET SKU = :SKU, name = :name, price = :price, weight = :weight, productType = :productType";
 
         //* Prepare Statement
         $stmt = $this->conn->prepare($query);
@@ -42,12 +42,14 @@ class Book extends Product implements IBook
         $this->name = htmlspecialchars(strip_tags($this->name));
         $this->price = htmlspecialchars(strip_tags($this->price));
         $this->weight = htmlspecialchars(strip_tags($this->weight));
+        $this->productType = htmlspecialchars(strip_tags($this->productType));
 
         //* Bind data
         $stmt->bindParam(":SKU", $this->SKU);
         $stmt->bindParam(":name", $this->name);
         $stmt->bindParam(":price", $this->price);
         $stmt->bindParam(":weight", $this->weight);
+        $stmt->bindParam(":productType", $this->productType);
 
         //* Execure query
         if ($stmt->execute()) {

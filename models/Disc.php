@@ -1,9 +1,9 @@
 <?php
 
-include_once "abstracts/Product.php";
+include_once "abstracts/Base.php";
 include_once "interfaces/IDisc.php";
 
-class Disc extends Product implements IDisc
+class Disc extends Base implements IDisc
 {
     protected $size;
 
@@ -27,7 +27,7 @@ class Disc extends Product implements IDisc
     public function create()
     {
         //* Create query
-        $query = "INSERT INTO " . $this->table . " SET SKU = :SKU, name = :name, price = :price, size = :size";
+        $query = "INSERT INTO " . $this->table . " SET SKU = :SKU, name = :name, price = :price, size = :size, productType = :productType";
 
         //* Prepare Statement
         $stmt = $this->conn->prepare($query);
@@ -37,12 +37,14 @@ class Disc extends Product implements IDisc
         $this->name = htmlspecialchars(strip_tags($this->name));
         $this->price = htmlspecialchars(strip_tags($this->price));
         $this->size = htmlspecialchars(strip_tags($this->size));
+        $this->productType = htmlspecialchars(strip_tags($this->productType));
 
         //* Bind data
         $stmt->bindParam(":SKU", $this->SKU);
         $stmt->bindParam(":name", $this->name);
         $stmt->bindParam(":price", $this->price);
         $stmt->bindParam(":size", $this->size);
+        $stmt->bindParam(":productType", $this->productType);
 
         //* Execure query
         if ($stmt->execute()) {

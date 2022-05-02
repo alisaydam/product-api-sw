@@ -20,9 +20,7 @@ $db = $database->connect();
 
 $data = json_decode(file_get_contents("php://input"));
 
-echo  json_encode(
-    array(($data))
-);
+ 
 
 if ($data->productType === "Book") {
     //* Create book
@@ -31,6 +29,7 @@ if ($data->productType === "Book") {
     $book->setName($data->name);
     $book->setPrice($data->price);
     $book->setWeight($data->weight);
+    $book->setProductType($data->productType);
 
     if ($book->create()) {
         echo json_encode(
@@ -42,12 +41,16 @@ if ($data->productType === "Book") {
         );
     }
 }
+
 if ($data->productType === "DVD") {
     $disc = new Disc($db);
     $disc->setSKU($data->SKU);
     $disc->setName($data->name);
     $disc->setPrice($data->price);
     $disc->setSize($data->size);
+    $disc->setProductType($data->productType);
+
+    
 
     if ($disc->create()) {
         echo json_encode(
@@ -65,6 +68,8 @@ if ($data->productType === "Furniture") {
     $furniture->setName($data->name);
     $furniture->setPrice($data->price);
     $furniture->setDimentions($data->dimentions);
+    $furniture->setProductType($data->productType);
+
 
     if ($furniture->create()) {
         echo json_encode(

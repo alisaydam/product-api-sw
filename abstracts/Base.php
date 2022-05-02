@@ -1,7 +1,7 @@
 <?php
 include_once "interfaces/IProduct.php"; 
 
- abstract class Product implements IProduct
+ abstract class Base implements IProduct
 {
 
     private $conn;
@@ -10,35 +10,12 @@ include_once "interfaces/IProduct.php";
     protected $SKU;
     protected $name;
     protected $price;
+    protected $productType;
  
-
-
-    // $mymap = [
-    //     1=>'book',
-    //     2=>'disc',
-    //     3=>'furniture'
-    //   ];
-    //   $mydata = [3,3,1];
-    //   var_dump(array_map(function($v) use ($mymap) {return $mymap[$v];}, $mydata));
-
-    // Constructor with DB
+ 
     public function __construct($db)
     {
         $this->conn = $db;
-    }
-    
-    public static function readAll()
-    {
- 
-        $query = "SELECT * FROM $this->table";
-        $stmt = $this->conn->prepare($query);
-
-        // Execute query
-        $stmt->execute();
-
-        echo "Read";
-
-        return $stmt;
     }
 
 
@@ -68,6 +45,14 @@ include_once "interfaces/IProduct.php";
     public function getPrice()
     {
         return $this->price;
+    }
+
+    public function setProductType($productType){
+        return $this->productType = $productType;
+    }
+ 
+    public function getProductType(){
+        return $productType;
     }
  
     // Read Data
