@@ -1,13 +1,13 @@
 <?php
 
-// * DB Info
+// * DB Info - Heroku free tier DB
 define("DB_HOST", "us-cdbr-east-05.cleardb.net");
 define("DB_USERNAME", "ba871319ce1487");
 define("DB_PASSWORD", "7dbde77c");
 define("DB_NAME", "heroku_b023fc8462d3a8e");
 
 
-
+//* Local DB
 // define("DB_HOST", "localhost");
 // define("DB_USERNAME", "root");
 // define("DB_PASSWORD", "");

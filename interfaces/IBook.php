@@ -1,6 +1,5 @@
 <?php
-
-// namespace BookInterface;
+ 
 
 interface IBook
 {

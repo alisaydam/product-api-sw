@@ -1,25 +1,12 @@
 <?php
-include_once "abstracts/Base.php";
-include_once "interfaces/IBook.php";
-// namespace Book;
-
-// use Baseclass\Product;
-// use BookInterface\IBook;
+include_once "../../abstracts/Base.php";
+include_once "../../interfaces/IBook.php"; 
 
 class Book extends Base implements IBook
-{
-    private $conn;
-
+{ 
     protected $weight;
 
-    // Constructor with DB
-    public function __construct($db)
-    {
-        $this->conn = $db;
-    }
-
-
-    // SET Parametre
+    // SET Parametres
     public function setWeight($weight)
     {
         $this->weight = $weight;

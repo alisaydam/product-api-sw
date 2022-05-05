@@ -1,18 +1,11 @@
 <?php
 
-include_once "abstracts/Base.php";
-include_once "interfaces/IFurniture.php";
+include_once "../../abstracts/Base.php";
+include_once "../../interfaces/IFurniture.php";
 
 class Furniture extends Base implements IFurniture
 {
     private $dimentions;
-
-    // Constructor with DB
-    public function __construct($db)
-    {
-        $this->conn = $db;
-    }
-
 
     public function setDimentions($dimentions)
     {

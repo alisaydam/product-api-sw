@@ -24,7 +24,7 @@ $result = $product->readAll();
 // Get row count
 $num = $result->rowCount();
 
-// Check if any categories
+// Check if there is any products
 if ($num > 0) {
     // Products array
     $product_arr = array();

@@ -1,11 +1,11 @@
 <?php
-include_once "interfaces/IProduct.php"; 
+include_once "../../interfaces/IProduct.php"; 
 
  abstract class Base implements IProduct
 {
 
-    private $conn;
-
+    //Common Props
+    protected $conn;
     protected $table = 'products';
     protected $SKU;
     protected $name;
@@ -13,6 +13,7 @@ include_once "interfaces/IProduct.php";
     protected $productType;
  
  
+    //Create class with connect to DB
     public function __construct($db)
     {
         $this->conn = $db;
@@ -51,8 +52,4 @@ include_once "interfaces/IProduct.php";
         return $this->productType = $productType;
     }
  
-     
-    // Read Data
-
-    abstract public function create();
 }

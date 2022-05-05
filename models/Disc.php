@@ -1,18 +1,12 @@
 <?php
 
-include_once "abstracts/Base.php";
-include_once "interfaces/IDisc.php";
+include_once "../../abstracts/Base.php";
+include_once "../../interfaces/IDisc.php";
 
 class Disc extends Base implements IDisc
 {
     protected $size;
-
-    // Constructor with DB
-    public function __construct($db)
-    {
-        $this->conn = $db;
-    }
-
+ 
 
     // SET Parametre
     public function setSize($size)

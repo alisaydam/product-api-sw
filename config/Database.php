@@ -13,7 +13,6 @@ class Database
     //* Connection
     private $conn;
 
-
     public function connect()
     {
         $options = [
