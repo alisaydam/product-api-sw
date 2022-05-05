@@ -28,7 +28,7 @@ if ($data->productType === "Book") {
     $book->setSKU($data->SKU);
     $book->setName($data->name);
     $book->setPrice($data->price);
-    $book->setWeight($data->weight);
+    $book->setWeight($data->attribute);
     $book->setProductType($data->productType);
 
     if ($book->create()) {
@@ -49,7 +49,7 @@ if ($data->productType === "DVD") {
     $disc->setSKU($data->SKU);
     $disc->setName($data->name);
     $disc->setPrice($data->price);
-    $disc->setSize($data->size);
+    $disc->setSize($data->attribute);
     $disc->setProductType($data->productType);
 
     if ($disc->create()) {
@@ -69,7 +69,7 @@ if ($data->productType === "Furniture") {
     $furniture->setSKU($data->SKU);
     $furniture->setName($data->name);
     $furniture->setPrice($data->price);
-    $furniture->setDimentions($data->dimentions);
+    $furniture->setDimentions($data->attribute);
     $furniture->setProductType($data->productType);
 
     if ($furniture->create()) {
