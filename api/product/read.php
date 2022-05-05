@@ -41,7 +41,7 @@ if ($num > 0) {
             'productType' => $productType,
             'weight' => $weight,
             'size' => $size,
-            'dimentions' => $price,
+            'dimentions' => $dimentions,
         );
 
         // Push to "data"

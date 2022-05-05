@@ -1,10 +1,9 @@
 <?php
 
-header('Access-Control-Allow-Methods: GET, POST');
-header("Access-Control-Allow-Headers: *");
-header("Access-Control-Allow-Origin: *");
-header("Content-Type: appication/json");
-header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Headers: *');
+header('Access-Control-Allow-Origin: *');
+header("Content-Type: appication/json"); 
 header("Acces-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization,X-Requested-Width");
 
 include_once "../../config/Database.php";
@@ -33,11 +32,11 @@ if ($data->productType === "Book") {
 
     if ($book->create()) {
         echo json_encode(
-            array("Message" => "Book Created")
+            array("success" => true, "mesage" => "book created")
         );
     } else {
         echo json_encode(
-            array("Message" => "Book not created")
+            array("success" => false, "mesage" => "furniture not created")
         );
     }
 }
@@ -54,11 +53,11 @@ if ($data->productType === "DVD") {
 
     if ($disc->create()) {
         echo json_encode(
-            array("Message" => "disc Created")
+            array("success" => true, "mesage" => "disc created")
         );
     } else {
         echo json_encode(
-            array("Message" => "disc not created")
+            array("success" => false, "mesage" => "disc not created")
         );
     }
 }
@@ -74,11 +73,11 @@ if ($data->productType === "Furniture") {
 
     if ($furniture->create()) {
         echo json_encode(
-            array("Message" => "furniture Created")
+            array("success" => true, "mesage" => "furniture created")
         );
     } else {
         echo json_encode(
-            array("Message" => "furniture not created")
+            array("success" => false, "mesage" => "furniture not created")
         );
     }
 }
