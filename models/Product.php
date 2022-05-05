@@ -11,15 +11,16 @@ class Product extends Base
     }
 
 
-  // Get categories
-  public function readAll()
-  {
+    // Get categories
+    public function readAll()
+    {
     // Create query
     $query = 'SELECT
         id,
         SKU,
         name, 
         price,
+        productType,
         size,
         weight,
         dimentions
@@ -35,10 +36,16 @@ class Product extends Base
     $stmt->execute();
 
     return $stmt;
-  }
+    }
       public function create(){
 
     }
 
 
+    public function addProduct($productType) {
+        if($productType = "Book"){
+           $book = new Book($db);
+           $book->create();
+        }
+    }
 }

@@ -51,10 +51,7 @@ include_once "interfaces/IProduct.php";
         return $this->productType = $productType;
     }
  
-    public function getProductType(){
-        return $productType;
-    }
- 
+     
     // Read Data
 
     abstract public function create();
