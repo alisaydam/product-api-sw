@@ -11,7 +11,7 @@ class Router {
 
     public function __construct($url)
     {
-        cors();
+        
         $this->url = trim($url, '/');
     }
 
@@ -28,6 +28,7 @@ class Router {
 
     public function run()
     {
+        cors();
          foreach ($this->routes[$_SERVER['REQUEST_METHOD']] as $route) {
             if ($route->matches($this->url)) {
                 return $route->execute();
