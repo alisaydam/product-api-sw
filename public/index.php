@@ -18,6 +18,7 @@ $router = new Router($_GET['url']);
  
 
 
+$router->get('/', 'App\Controllers\ProductsController@welcome');
 $router->get('/products', 'App\Controllers\ProductsController@index');
 $router->post('/products/create', 'App\Controllers\ProductsController@create');
 $router->post('/products/delete', 'App\Controllers\ProductsController@delete');

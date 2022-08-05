@@ -1,10 +1,9 @@
 <?php
 
-use App\Models\Product;
-use App\Controllers\Controller;
-use Database\DBConnection;
+namespace App\Controllers;
 
-
+use App\Models\Product; 
+use Database\DBConnection; 
  
 class ProductsController  {
 
@@ -13,6 +12,11 @@ class ProductsController  {
         $this->db = $db;
     }
 
+    public function welcome()
+    { 
+        echo "Wellcome to the product api";
+    }
+  
     public function index()
     { 
         $products = (new Product($this->getDB()))->all(); 
